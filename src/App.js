@@ -5,12 +5,17 @@ import { useState } from 'react'
 
 function App() {
   const [cart, setCart] = useState([])
+  const [disableCart, setDisableCart] = useState(false)
 
   return (
     <div>
-      <Nabar itemsNum={cart.length} />
+      <Nabar
+        itemsNum={cart.length}
+        disableCart={disableCart}
+        setDisableCart={setDisableCart}
+      />
       <Header />
-      <List cart={cart} addToCart={setCart} />
+      <List cart={cart} addToCart={setCart} disableCart={disableCart} />
     </div>
   )
 }

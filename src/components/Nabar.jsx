@@ -8,7 +8,7 @@ import {
 } from 'react-bootstrap'
 import { BsCartFill } from 'react-icons/bs'
 
-const Nabar = ({ itemsNum }) => {
+const Nabar = ({ itemsNum, disableCart, setDisableCart }) => {
   return (
     <Navbar bg='light' expand='lg'>
       <Container fluid className='container px-4 px-lg-5'>
@@ -29,7 +29,14 @@ const Nabar = ({ itemsNum }) => {
               <NavDropdown.Item href='#action5'>New Arrivals</NavDropdown.Item>
             </NavDropdown>
           </Nav>
-          <Button variant='outline-dark'>
+          <Button
+            variant={disableCart ? 'outline-success' : 'outline-danger'}
+            className='mx-3'
+            onClick={() => setDisableCart(!disableCart)}
+          >
+            Disable Cart
+          </Button>
+          <Button variant='outline-dark' disabled={disableCart}>
             <BsCartFill />
             <span className='mx-2'>Cart</span>
             <Badge pill bg='dark'>

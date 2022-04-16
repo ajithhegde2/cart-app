@@ -34,13 +34,19 @@ const items = [
   },
 ]
 
-const List = ({ cart, addToCart }) => {
+const List = ({ cart, addToCart, disableCart }) => {
   return (
     <section className='py-5'>
       <div className='container px-4 px-lg-5 mt-5'>
         <div className='row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center'>
           {items.map((item, index) => (
-            <Post item={item} cart={cart} addToCart={addToCart} key={index} />
+            <Post
+              item={item}
+              cart={cart}
+              addToCart={addToCart}
+              disableCart={disableCart}
+              key={index}
+            />
           ))}
         </div>
       </div>

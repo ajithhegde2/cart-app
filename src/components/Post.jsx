@@ -1,7 +1,7 @@
 import React from 'react'
 import { Button, Card } from 'react-bootstrap'
 
-const Post = ({ item, cart, addToCart }) => {
+const Post = ({ item, cart, addToCart, disableCart }) => {
   return (
     <div className='col mb-5'>
       <Card className='h-100 p-0'>
@@ -28,6 +28,7 @@ const Post = ({ item, cart, addToCart }) => {
             <div>
               <Button
                 variant='outline-danger'
+                disabled={disableCart}
                 onClick={() => {
                   cart.splice(
                     cart.findIndex((element) => element.name === item.name),
@@ -47,6 +48,7 @@ const Post = ({ item, cart, addToCart }) => {
               </span>
               <Button
                 variant='outline-success'
+                disabled={disableCart}
                 onClick={() => {
                   cart.push(item)
                   addToCart([...cart])
@@ -58,6 +60,7 @@ const Post = ({ item, cart, addToCart }) => {
           ) : (
             <Button
               variant='outline-dark'
+              disabled={disableCart}
               onClick={() => {
                 cart.push(item)
                 addToCart([...cart])
