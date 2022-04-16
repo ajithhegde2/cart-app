@@ -34,7 +34,7 @@ const Nabar = ({ itemsNum, disableCart, setDisableCart }) => {
             className='mx-3'
             onClick={() => setDisableCart(!disableCart)}
           >
-            Disable Cart
+            {disableCart ? 'Enable Cart' : 'Disable Cart'}
           </Button>
           <Button variant='outline-dark' disabled={disableCart}>
             <BsCartFill />
